@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.TblClientDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.TblClientEntity" id="tblClientMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="telephone" column="telephone"/>
+        <result property="companyName" column="company_name"/>
+        <result property="sex" column="sex"/>
+        <result property="comment" column="comment"/>
+        <result property="operatorName" column="operator_name"/>
+        <result property="createrTime" column="creater_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="state" column="state"/>
+        <result property="cardNo" column="card_no"/>
+    </resultMap>
+
+
+</mapper>

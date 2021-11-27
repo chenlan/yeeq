@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.TblWorksiteDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.vo.resp.WorksiteVo" id="WorksiteVo">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="address" column="address"/>
+        <result property="worksiteTelephone" column="telephone"/>
+        <result property="clientId" column="client_id"/>
+        <result property="clientName" column="clientName"/>
+        <result property="comment" column="comment"/>
+        <result property="operator" column="operator"/>
+        <result property="createrTime" column="creater_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+    <select id="searchList" resultMap="WorksiteVo">
+        select a.*,b.name as clientName,b.telephone
+        from tbl_worksite a,tbl_client b
+        where a.client_id=b.id
+        <if test="req.worksite_name!=null and req.worksite_name!=''">
+            and a.name like CONCAT('%',#{req.worksite_name},'%')
+        </if>
+        <if test="req.link_name!=null and req.link_name!=''">
+            and b.name like CONCAT('%',#{req.link_name},'%')
+        </if>
+
+    </select>
+    <select id="getWorksitById" resultMap="WorksiteVo">
+        select a.*,b.name as clientName,b.telephone
+        from tbl_worksite a,tbl_client b
+        where a.client_id=b.id and a.id= #{worksiteId}
+    </select>
+
+
+</mapper>

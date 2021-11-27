@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.TblProductDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.TblProductEntity" id="tblProductMap">
+        <result property="id" column="id"/>
+        <result property="productType" column="product_type"/>
+        <result property="productName" column="product_name"/>
+        <result property="productUnit" column="product_unit"/>
+        <result property="productValue" column="product_value"/>
+        <result property="productBillingType" column="product_billing_type"/>
+        <result property="comment" column="comment"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+
+</mapper>
